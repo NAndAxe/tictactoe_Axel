@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="3 x 3 tictactoe.js"></script>
+    <title>3 x 3 grid</title>
+    <style>
+        body {
+            height: 80vh;
+            margin: 0;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .grid {
+            margin-bottom: 15px;
+            display: grid;
+            grid-template-columns: repeat(3, 50px);
+            top: -10vh;
+            position: relative;
+        }
+
+        .grid div {
+            width: 50px;
+            height: 50px;
+            font-size: 30px;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            border: 1.5px solid black;
+            cursor: pointer;
+        }
+
+        #menu {
+           
+            position: relative;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+
+        }
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #111;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="menu">
+        <li class="modes"><a id="ket1">Két játékos local</a></li>
+        <li class="modes"><a id="gep2">Gép ellen (kezdő)</a></li>
+        <li class="modes"><a id="gep3">Gép ellen (haladó)</a></li>
+    </ul>
+
+    <div class="container" id="kulso">
+        <div class="grid" id="belso" id="gridall">
+            <div class="ertekek" id="value1"></div>
+            <div class="ertekek" id="value2"></div>
+            <div class="ertekek" id="value3"></div>
+            <div class="ertekek" id="value4"></div>
+            <div class="ertekek" id="value5"></div>
+            <div class="ertekek" id="value6"></div>
+            <div class="ertekek" id="value7"></div>
+            <div class="ertekek" id="value8"></div>
+            <div class="ertekek" id="value9"></div>
+        </div>
+        <div id="eredmeny"></div>
+        <button onclick="Reset()">Új játék</button>
+    </div>
+    <script>
+        const divs = document.querySelectorAll(".ertekek");
+        divs.forEach(div => {
+            div.addEventListener("click", Game);
+        });
+
+        const livs = document.querySelectorAll(".modes");
+        livs.forEach(li => {
+            li.addEventListener("click", Mode);
+        });
+    </script>
+</body>
+
+</html>
